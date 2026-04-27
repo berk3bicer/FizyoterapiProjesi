@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace FizyoterapiAPI.Models
 {
@@ -21,6 +22,8 @@ namespace FizyoterapiAPI.Models
         public string? Notes { get; set; }
 
         public int ServiceId { get; set; }
+
+        [ValidateNever]
         public Service Service { get; set; } = null!;
     }
 }
