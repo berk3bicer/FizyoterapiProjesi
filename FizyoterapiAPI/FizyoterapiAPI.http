@@ -1,0 +1,6 @@
+@FizyoterapiAPI_HostAddress = http://localhost:5114
+
+GET {{FizyoterapiAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

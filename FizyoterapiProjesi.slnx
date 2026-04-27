@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FizyoterapiAPI/FizyoterapiAPI.csproj" />
+  <Project Path="FizyoterapiWeb/FizyoterapiWeb.csproj" />
+</Solution>
