@@ -1,0 +1,40 @@
+@page
+@model HizmetlerModel
+@{
+    ViewData["Title"] = "Hizmetler";
+}
+
+<section class="py-5" style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%);">
+    <div class="container text-center text-white py-4">
+        <h1 class="display-5 fw-bold">Hizmetlerimiz</h1>
+        <p class="lead">Sağlığınız için sunduğumuz tedavi seçenekleri</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        @if (Model.Services.Any())
+        {
+            <div class="row g-4">
+                @foreach (var service in Model.Services)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <h4 class="card-title fw-bold text-success">@service.Name</h4>
+                                <p class="card-text text-muted">@service.Description</p>
+                                <a href="/Randevu" class="btn btn-outline-success mt-3">Bu Hizmet İçin Randevu Al</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">
+                Henüz hizmet eklenmemiş.
+            </div>
+        }
+    </div>
+</section>

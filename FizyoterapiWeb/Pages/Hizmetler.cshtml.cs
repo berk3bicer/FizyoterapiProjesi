@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FizyoterapiWeb.Pages;
 
-public class IndexModel : PageModel
+public class HizmetlerModel : PageModel
 {
     private readonly IApiService _apiService;
 
     public List<Service> Services { get; set; } = new();
-    public TherapistProfile? Therapist { get; set; }
 
-    public IndexModel(IApiService apiService)
+    public HizmetlerModel(IApiService apiService)
     {
         _apiService = apiService;
     }
@@ -19,6 +18,5 @@ public class IndexModel : PageModel
     public async Task OnGetAsync()
     {
         Services = await _apiService.GetServicesAsync();
-        Therapist = await _apiService.GetTherapistProfileAsync();
     }
 }

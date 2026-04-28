@@ -1,10 +1,70 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Anasayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- HERO BÖLÜM -->
+<section class="hero-section text-white text-center py-5"
+         style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%); margin-top: -1rem;">
+    <div class="container py-5">
+        @if (Model.Therapist != null)
+        {
+            <h1 class="display-4 fw-bold mb-3">@Model.Therapist.FullName</h1>
+            <p class="lead mb-4">@Model.Therapist.Title</p>
+            <p class="mb-4 mx-auto" style="max-width: 600px;">@Model.Therapist.Biography</p>
+        }
+        else
+        {
+            <h1 class="display-4 fw-bold mb-3">Profesyonel Fizyoterapi Hizmetleri</h1>
+            <p class="lead mb-4">Sağlığınız ve hareketiniz için kişiye özel çözümler</p>
+        }
+        <a href="/Randevu" class="btn btn-light btn-lg px-5">Randevu Al</a>
+    </div>
+</section>
+
+<!-- HİZMETLER BÖLÜMÜ -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Hizmetlerimiz</h2>
+            <p class="text-muted">Size özel tedavi yaklaşımları</p>
+        </div>
+
+        @if (Model.Services.Any())
+        {
+            <div class="row g-4">
+                @foreach (var service in Model.Services)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold">@service.Name</h5>
+                                <p class="card-text text-muted">@service.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">
+                Henüz hizmet eklenmemiş. API çalışıyor mu kontrol edin.
+            </div>
+        }
+
+        <div class="text-center mt-5">
+            <a href="/Hizmetler" class="btn btn-outline-success btn-lg">Tüm Hizmetleri Gör</a>
+        </div>
+    </div>
+</section>
+
+<!-- RANDEVU CTA -->
+<section class="py-5" style="background-color: #f1f6f3;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-3">Sağlığınız İçin İlk Adımı Atın</h2>
+        <p class="lead text-muted mb-4">Online randevu alın, en kısa sürede sizinle iletişime geçelim</p>
+        <a href="/Randevu" class="btn btn-success btn-lg px-5">Hemen Randevu Al</a>
+    </div>
+</section>

@@ -33,6 +33,11 @@ namespace FizyoterapiAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Appointment>> Create(Appointment appointment)
         {
+            if (appointment.AppointmentDate < DateTime.Now)
+            {
+                return BadRequest(new { message = "Randevu tarihi geçmişte olamaz." });
+            }
+
             var created = await _appointmentService.CreateAsync(appointment);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }

@@ -1,0 +1,95 @@
+@page
+@model RandevuModel
+@{
+    ViewData["Title"] = "Randevu Al";
+}
+
+<section class="py-5" style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%);">
+    <div class="container text-center text-white py-4">
+        <h1 class="display-5 fw-bold">Randevu Al</h1>
+        <p class="lead">Formu doldurun, en kısa sürede sizinle iletişime geçelim</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                @if (Model.IsSuccess)
+                {
+                    <div class="alert alert-success">
+                        <h4 class="alert-heading">✓ Randevu talebiniz alındı!</h4>
+                        <p class="mb-0">En kısa sürede sizinle iletişime geçeceğiz. Anasayfaya dönmek için <a href="/"
+                                                                                                                  class="alert-link">tıklayın</a>.</p>
+                        </div>
+                    }
+                else
+                    {
+                        @if (Model.HasError)
+                        {
+                            <div class="alert alert-danger">
+                                Bir hata oluştu. Lütfen daha sonra tekrar deneyin.
+                            </div>
+                        }
+
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4 p-md-5">
+                                <form method="post">
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">Ad Soyad <span
+                                            class="text-danger">*</span></label>
+                                            <input asp-for="Appointment.PatientName" class="form-control form-control-lg"
+                                                   required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">E-posta <span class="text-danger">*</span></label>
+                                            <input asp-for="Appointment.PatientEmail" type="email"
+                                                   class="form-control form-control-lg" required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">Telefon <span class="text-danger">*</span></label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text">+90</span>
+                                                <input asp-for="Appointment.PatientPhone" type="tel" class="form-control"
+                                                       placeholder="5XX XXX XX XX" pattern="[0-9\s]{10,13}" maxlength="13" required />
+                                            </div>
+                                            <small class="text-muted">Örnek: 530 324 21 23</small>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">Hizmet <span class="text-danger">*</span></label>
+                                            <select asp-for="Appointment.ServiceId" class="form-select form-select-lg" required>
+                                                <option value="">Hizmet seçin...</option>
+                                                @foreach (var service in Model.Services)
+                                                {
+                                                    <option value="@service.Id">@service.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">Tercih Edilen Tarih ve Saat <span
+                                                class="text-danger">*</span></label>
+                                                <input asp-for="Appointment.AppointmentDate" type="datetime-local"
+                                                       class="form-control form-control-lg"
+                                                       min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+                                            </div>
+
+                                            <div class="mb-4">
+                                                <label class="form-label fw-semibold">Notlar (opsiyonel)</label>
+                                                <textarea asp-for="Appointment.Notes" class="form-control" rows="4"
+                                                          placeholder="Şikayetinizi kısaca belirtebilirsiniz..."></textarea>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success btn-lg w-100">Randevu Talebini Gönder</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>

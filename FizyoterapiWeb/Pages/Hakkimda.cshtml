@@ -1,0 +1,60 @@
+@page
+@model HakkimdaModel
+@{
+    ViewData["Title"] = "Hakkımda";
+}
+
+<section class="py-5" style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%);">
+    <div class="container text-center text-white py-4">
+        <h1 class="display-5 fw-bold">Hakkımda</h1>
+        <p class="lead">Profesyonel deneyim ve uzmanlık alanları</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        @if (Model.Therapist != null)
+        {
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="rounded-circle bg-success bg-opacity-10 d-inline-flex align-items-center justify-content-center mb-3"
+                                 style="width: 120px; height: 120px;">
+                                <span class="display-4 text-success">@Model.Therapist.FullName.Substring(0, 1)</span>
+                            </div>
+                            <h4 class="fw-bold">@Model.Therapist.FullName</h4>
+                            <p class="text-success mb-3">@Model.Therapist.Title</p>
+                            <hr />
+                            <div class="text-start">
+                                <p class="mb-2"><strong>📧</strong> @Model.Therapist.Email</p>
+                                <p class="mb-0"><strong>📞</strong> @Model.Therapist.Phone</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <h3 class="fw-bold mb-3">Biyografi</h3>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">@Model.Therapist.Biography</p>
+
+                    <h3 class="fw-bold mb-3">Eğitim</h3>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">@Model.Therapist.Education</p>
+
+                    <h3 class="fw-bold mb-3">Uzmanlık Alanları</h3>
+                    <p class="text-muted" style="line-height: 1.8;">@Model.Therapist.Specializations</p>
+
+                    <div class="mt-4">
+                        <a href="/Randevu" class="btn btn-success btn-lg">Randevu Al</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">
+                Terapist bilgileri yüklenemedi. API çalışıyor mu kontrol edin.
+            </div>
+        }
+    </div>
+</section>
