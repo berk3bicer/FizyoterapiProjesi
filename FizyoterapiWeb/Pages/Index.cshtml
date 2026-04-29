@@ -4,31 +4,62 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<!-- HERO BÖLÜM -->
-<section class="hero-section text-white text-center py-5"
-         style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%); margin-top: -1rem;">
-    <div class="container py-5">
+<section class="hero-warm">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="container hero-warm-content">
+        <div class="hero-status-badge">
+            <span class="status-dot"></span>
+            Yeni randevular alınıyor
+        </div>
+
         @if (Model.Therapist != null)
         {
-            <h1 class="display-4 fw-bold mb-3">@Model.Therapist.FullName</h1>
-            <p class="lead mb-4">@Model.Therapist.Title</p>
-            <p class="mb-4 mx-auto" style="max-width: 600px;">@Model.Therapist.Biography</p>
+            <h1 class="hero-warm-title">
+                Hareketin <em>özgürlüğü</em><br />
+                için yanınızdayız
+            </h1>
+            <p class="hero-warm-subtitle">@Model.Therapist.Biography</p>
         }
         else
         {
-            <h1 class="display-4 fw-bold mb-3">Profesyonel Fizyoterapi Hizmetleri</h1>
-            <p class="lead mb-4">Sağlığınız ve hareketiniz için kişiye özel çözümler</p>
+            <h1 class="hero-warm-title">
+                Hareketin <em>özgürlüğü</em><br />
+                için yanınızdayız
+            </h1>
+            <p class="hero-warm-subtitle">Modern fizyoterapi anlayışıyla ağrılarınızı geride bırakıp, hareketin keyfini yeniden keşfedin.</p>
         }
-        <a href="/Randevu" class="btn btn-light btn-lg px-5">Randevu Al</a>
+
+        <div class="hero-warm-actions">
+            <a href="/Randevu" class="btn-warm-primary">Randevu Al</a>
+            <a href="/Hizmetler" class="btn-warm-link">Hizmetlerimizi gör →</a>
+        </div>
+
+        <div class="hero-warm-features">
+            <div class="hero-feature">
+                <div class="hero-feature-title">Modern</div>
+                <div class="hero-feature-subtitle">Yaklaşım</div>
+            </div>
+            <div class="hero-feature-divider"></div>
+            <div class="hero-feature">
+                <div class="hero-feature-title">Kişiye Özel</div>
+                <div class="hero-feature-subtitle">Tedavi</div>
+            </div>
+            <div class="hero-feature-divider"></div>
+            <div class="hero-feature">
+                <div class="hero-feature-title">Kanıta Dayalı</div>
+                <div class="hero-feature-subtitle">Yöntem</div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- HİZMETLER BÖLÜMÜ -->
-<section class="py-5">
+<section class="bg-beige">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Hizmetlerimiz</h2>
-            <p class="text-muted">Size özel tedavi yaklaşımları</p>
+        <div class="section-title">
+            <h2>Hizmetlerimiz</h2>
+            <p>Size özel tedavi yaklaşımları ile sağlığınıza kavuşun</p>
         </div>
 
         @if (Model.Services.Any())
@@ -61,10 +92,10 @@
 </section>
 
 <!-- RANDEVU CTA -->
-<section class="py-5" style="background-color: #f1f6f3;">
+<section class="bg-green-soft">
     <div class="container text-center">
-        <h2 class="fw-bold mb-3">Sağlığınız İçin İlk Adımı Atın</h2>
-        <p class="lead text-muted mb-4">Online randevu alın, en kısa sürede sizinle iletişime geçelim</p>
-        <a href="/Randevu" class="btn btn-success btn-lg px-5">Hemen Randevu Al</a>
+        <h2 class="mb-3">Sağlığınız İçin İlk Adımı Atın</h2>
+        <p class="lead mb-4">Online randevu alın, en kısa sürede sizinle iletişime geçelim</p>
+        <a href="/Randevu" class="btn btn-success btn-lg">Hemen Randevu Al</a>
     </div>
 </section>

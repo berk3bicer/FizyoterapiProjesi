@@ -1,64 +1,89 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FizyoterapiWeb</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] - Fizyoterapi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FizyoterapiWeb.styles.css" asp-append-version="true" />
 </head>
-
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand fw-bold" asp-area="" asp-page="/Index">Fizyoterapi</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Fizyoterapi</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-end">
+                    <ul class="navbar-nav align-items-lg-center">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Anasayfa</a>
+                            <a class="nav-link" asp-area="" asp-page="/Index">Anasayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Hizmetler">Hizmetler</a>
+                            <a class="nav-link" asp-area="" asp-page="/Hizmetler">Hizmetler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Hakkimda">Hakkımda</a>
+                            <a class="nav-link" asp-area="" asp-page="/Hakkimda">Hakkımda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Randevu">Randevu</a>
+                            <a class="nav-link" asp-area="" asp-page="/Iletisim">İletişim</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Iletisim">İletişim</a>
+                            <a class="nav-link btn-randevu" asp-area="" asp-page="/Randevu">Randevu Al</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container py-3">
-            &copy; 2026 - Fizyoterapi - Tüm hakları saklıdır.
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">Fizyoterapi</div>
+                    <p>Modern yaklaşım, kişiye özel ve kanıta dayalı tedavi anlayışıyla sağlığınız için yanınızdayız.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Sayfalar</h5>
+                    <p><a asp-area="" asp-page="/Index">Anasayfa</a></p>
+                    <p><a asp-area="" asp-page="/Hizmetler">Hizmetler</a></p>
+                    <p><a asp-area="" asp-page="/Hakkimda">Hakkımda</a></p>
+                    <p><a asp-area="" asp-page="/Iletisim">İletişim</a></p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>İletişim</h5>
+                    <p>İstanbul, Türkiye</p>
+                    <p>iletisim@fizyoterapi.com</p>
+                    <p>+90 555 000 00 00</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Çalışma Saatleri</h5>
+                    <p>Pazartesi - Cuma: 09:00 - 18:00</p>
+                    <p>Cumartesi: 10:00 - 16:00</p>
+                    <p>Pazar: Kapalı</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Fizyoterapi. Tüm hakları saklıdır.
+            </div>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-
 </html>
