@@ -4,67 +4,206 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<!-- HERO BÖLÜM -->
-<section class="hero-section text-white text-center py-5"
-         style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%); margin-top: -1rem;">
-    <div class="container py-5">
+<section class="hero-warm">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="container hero-warm-content">
+        <div class="hero-status-badge">
+            <span class="status-dot"></span>
+            Yeni randevular alınıyor
+        </div>
+
         @if (Model.Therapist != null)
         {
-            <h1 class="display-4 fw-bold mb-3">@Model.Therapist.FullName</h1>
-            <p class="lead mb-4">@Model.Therapist.Title</p>
-            <p class="mb-4 mx-auto" style="max-width: 600px;">@Model.Therapist.Biography</p>
+            <h1 class="hero-warm-title">
+                Hareketin <em>özgürlüğü</em><br />
+                için yanınızdayız
+            </h1>
+            <p class="hero-warm-subtitle">@Model.Therapist.Biography</p>
         }
         else
         {
-            <h1 class="display-4 fw-bold mb-3">Profesyonel Fizyoterapi Hizmetleri</h1>
-            <p class="lead mb-4">Sağlığınız ve hareketiniz için kişiye özel çözümler</p>
+            <h1 class="hero-warm-title">
+                Hareketin <em>özgürlüğü</em><br />
+                için yanınızdayız
+            </h1>
+            <p class="hero-warm-subtitle">Modern fizyoterapi anlayışıyla ağrılarınızı geride bırakıp, hareketin keyfini yeniden keşfedin.</p>
         }
-        <a href="/Randevu" class="btn btn-light btn-lg px-5">Randevu Al</a>
+
+        <div class="hero-warm-actions">
+            <a href="/Randevu" class="btn-warm-primary">Randevu Al</a>
+            <a href="/Hizmetler" class="btn-warm-link">Hizmetlerimizi gör →</a>
+        </div>
+
+        <div class="hero-warm-features">
+            <div class="hero-feature">
+                <div class="hero-feature-title">Modern</div>
+                <div class="hero-feature-subtitle">Yaklaşım</div>
+            </div>
+            <div class="hero-feature-divider"></div>
+            <div class="hero-feature">
+                <div class="hero-feature-title">Kişiye Özel</div>
+                <div class="hero-feature-subtitle">Tedavi</div>
+            </div>
+            <div class="hero-feature-divider"></div>
+            <div class="hero-feature">
+                <div class="hero-feature-title">Kanıta Dayalı</div>
+                <div class="hero-feature-subtitle">Yöntem</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEDEN BIZ BÖLÜMÜ -->
+<section class="why-us-section">
+    <div class="container">
+        <div class="section-title">
+            <span class="section-tag">Neden Biz</span>
+            <h2>Sağlığınız İçin Doğru Adres</h2>
+            <p>Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri sunuyoruz</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"/>
+                            <polyline points="9,11 9,3 15,3 15,11"/>
+                        </svg>
+                    </div>
+                    <h3>Bilimsel Yaklaşım</h3>
+                    <p>Güncel literatür ve kanıta dayalı yöntemlerle, etkin tedavi süreçleri sunuyoruz.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Kişiye Özel Tedavi</h3>
+                    <p>Her hastaya özel detaylı değerlendirme yapıp, bireysel tedavi planı hazırlıyoruz.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>Modern Teknikler</h3>
+                    <p>Manuel terapi, kuru iğneleme ve egzersiz programlarıyla güncel teknikleri uyguluyoruz.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Hasta Odaklı Bakım</h3>
+                    <p>Sıcak ve samimi ortamda, sürekli iletişim ile yanınızda olmaya devam ediyoruz.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- HİZMETLER BÖLÜMÜ -->
-<section class="py-5">
+<section class="services-section bg-cream">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Hizmetlerimiz</h2>
-            <p class="text-muted">Size özel tedavi yaklaşımları</p>
+        <div class="section-title">
+            <span class="section-tag">Hizmetlerimiz</span>
+            <h2>Uzmanlık Alanlarımız</h2>
+            <p>Geniş hizmet yelpazemizle her türlü ihtiyacınıza yönelik tedavi çözümleri</p>
         </div>
-
-        @if (Model.Services.Any())
-        {
-            <div class="row g-4">
-                @foreach (var service in Model.Services)
+        <div class="row g-4">
+            @if (Model.Services != null && Model.Services.Any())
+            {
+                @foreach (var service in Model.Services.Take(3))
                 {
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-bold">@service.Name</h5>
-                                <p class="card-text text-muted">@service.Description</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+                                </svg>
                             </div>
+                            <h3>@service.Name</h3>
+                            <p>@service.Description</p>
+                            <a href="/Hizmetler" class="service-link">Detaylı Bilgi →</a>
                         </div>
                     </div>
                 }
-            </div>
-        }
-        else
-        {
-            <div class="alert alert-info text-center">
-                Henüz hizmet eklenmemiş. API çalışıyor mu kontrol edin.
-            </div>
-        }
-
+            }
+            else
+            {
+                <div class="col-12">
+                    <div class="alert alert-info text-center">
+                        Henüz hizmet eklenmemiş. API çalışıyor mu kontrol edin.
+                    </div>
+                </div>
+            }
+        </div>
         <div class="text-center mt-5">
-            <a href="/Hizmetler" class="btn btn-outline-success btn-lg">Tüm Hizmetleri Gör</a>
+            <a href="/Hizmetler" class="btn-warm-primary">Tüm Hizmetleri Gör</a>
         </div>
     </div>
 </section>
 
-<!-- RANDEVU CTA -->
-<section class="py-5" style="background-color: #f1f6f3;">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-3">Sağlığınız İçin İlk Adımı Atın</h2>
-        <p class="lead text-muted mb-4">Online randevu alın, en kısa sürede sizinle iletişime geçelim</p>
-        <a href="/Randevu" class="btn btn-success btn-lg px-5">Hemen Randevu Al</a>
+<!-- SÜREÇ BÖLÜMÜ -->
+<section class="process-section">
+    <div class="container">
+        <div class="section-title">
+            <span class="section-tag">Süreç</span>
+            <h2>Tedavi Yolculuğunuz</h2>
+            <p>İyileşme yolculuğunuzda 4 basit adım</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Randevu Alın</h3>
+                    <p>Online formumuzu doldurarak veya telefon ile randevunuzu oluşturun.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Detaylı Değerlendirme</h3>
+                    <p>İlk seansta detaylı muayene ve değerlendirme ile rahatsızlığınızın kaynağını belirliyoruz.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Kişisel Tedavi Planı</h3>
+                    <p>Size özel tedavi programı hazırlanır ve hedefler net olarak belirlenir.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Düzenli Takip</h3>
+                    <p>Tedavi süresince ilerlemenizi takip eder, gerektiğinde programı güncelleriz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BÖLÜMÜ -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-card">
+            <h2>Sağlığınız İçin İlk Adımı Atın</h2>
+            <p>Online randevu alın, en kısa sürede sizinle iletişime geçelim</p>
+            <a href="/Randevu" class="btn-cta">Hemen Randevu Al</a>
+        </div>
     </div>
 </section>

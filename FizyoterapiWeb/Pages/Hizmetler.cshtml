@@ -2,38 +2,61 @@
 @model HizmetlerModel
 @{
     ViewData["Title"] = "Hizmetler";
+    int iconIndex = 0;
 }
 
-<section class="py-5" style="background: linear-gradient(135deg, #5a8a7a 0%, #3d6b5d 100%);">
-    <div class="container text-center text-white py-4">
-        <h1 class="display-5 fw-bold">Hizmetlerimiz</h1>
-        <p class="lead">Sağlığınız için sunduğumuz tedavi seçenekleri</p>
+<section class="page-hero">
+    <div class="container text-center">
+        <span class="section-tag">Hizmetlerimiz</span>
+        <h1 class="page-hero-title">Uzmanlık Alanlarımız</h1>
+        <p class="page-hero-subtitle">Geniş hizmet yelpazemizle her türlü ihtiyacınıza yönelik, kanıta dayalı tedavi çözümleri sunuyoruz</p>
     </div>
 </section>
 
-<section class="py-5">
+<section class="services-section">
     <div class="container">
         @if (Model.Services.Any())
         {
             <div class="row g-4">
                 @foreach (var service in Model.Services)
                 {
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <h4 class="card-title fw-bold text-success">@service.Name</h4>
-                                <p class="card-text text-muted">@service.Description</p>
-                                <a href="/Randevu" class="btn btn-outline-success mt-3">Bu Hizmet İçin Randevu Al</a>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                @if (iconIndex % 3 == 0)
+                                {
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                }
+                                else if (iconIndex % 3 == 1)
+                                {
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                }
                             </div>
+                            <h3>@service.Name</h3>
+                            <p>@service.Description</p>
+                            <a href="/Randevu" class="service-link">Bu Hizmet İçin Randevu Al →</a>
                         </div>
                     </div>
+                    iconIndex++;
                 }
             </div>
         }
         else
         {
             <div class="alert alert-info text-center">
-                Henüz hizmet eklenmemiş.
+                Henüz hizmet eklenmemiş. API çalışıyor mu kontrol edin.
             </div>
         }
     </div>
