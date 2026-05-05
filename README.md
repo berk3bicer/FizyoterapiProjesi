@@ -2,7 +2,6 @@
 
 Bir fizyoterapist için geliştirilmiş tanıtım ve online randevu web sitesi.
 
-🌐 **Canlı:** [nazligulcira.com](https://nazligulcira.com)
 
 ## Özellikler
 
@@ -90,48 +89,14 @@ dotnet run
 - Swagger: http://localhost:5114/swagger
 - Web: http://localhost:5077
 
-## Production Deploy
+## Deploy
 
-İki ayrı Render Web Service kullanılıyor.
-
-### FizyoterapiAPI
-
-| Ayar | Değer |
-|------|-------|
-| Root Directory | FizyoterapiAPI |
-| Runtime | Docker |
-| Region | Frankfurt (EU Central) |
-| Instance | Free |
+Her iki proje Docker ile containerize edilmiştir. `Dockerfile` her alt projede mevcuttur.
 
 Environment variables:
-- `DATABASE_URL`: PostgreSQL connection string
-- `ASPNETCORE_ENVIRONMENT`: Production
-
-### FizyoterapiWeb
-
-| Ayar | Değer |
-|------|-------|
-| Root Directory | FizyoterapiWeb |
-| Runtime | Docker |
-| Region | Frankfurt (EU Central) |
-| Instance | Free |
-
-Environment variables:
-- `API_BASE_URL`: https://fizyoterapi-api.onrender.com
-- `ASPNETCORE_ENVIRONMENT`: Production
-
-### Domain Bağlama (Turhost)
-
-DNS kayıtları:
-- A: `nazligulcira.com` → `216.24.57.1` (Render IP)
-- CNAME: `www.nazligulcira.com` → `fizyoterapi-web.onrender.com`
-
-## Notlar
-
-- Render Free Tier 15 dakika inaktivite sonrası uyur, ilk istek 50 saniye sürebilir.
-- PostgreSQL Neon'da Frankfurt region'da host ediliyor.
-- HTTPS otomatik (Render proxy yönetiyor).
-- Production'da `UseHttpsRedirection()` kullanılmıyor (proxy çakışması).
+- `DATABASE_URL`: PostgreSQL connection string (API)
+- `API_BASE_URL`: API servisinin adresi (Web)
+- `ASPNETCORE_ENVIRONMENT`: `Production`
 
 ## Geliştirici
 
