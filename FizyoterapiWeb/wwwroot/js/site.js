@@ -1,4 +1,12 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener('DOMContentLoaded', function () {
+    var navbarCollapse = document.querySelector('.navbar-collapse');
+    if (!navbarCollapse) return;
 
-// Write your JavaScript code.
+    navbarCollapse.addEventListener('show.bs.collapse', function () {
+        document.body.classList.add('menu-open');
+    });
+
+    navbarCollapse.addEventListener('hide.bs.collapse', function () {
+        document.body.classList.remove('menu-open');
+    });
+});

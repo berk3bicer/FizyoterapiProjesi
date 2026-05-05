@@ -3,7 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Fizyoterapi</title>
+
+    <title>@ViewData["Title"] | Nazlı Gül Çira Fizyoterapi</title>
+    <meta name="description" content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri. Manuel terapi, kuru iğneleme, egzersiz terapisi ve daha fazlası.")" />
+    <meta name="keywords" content="@(ViewData["Keywords"] ?? "fizyoterapi, fizyoterapist, manuel terapi, kuru iğneleme, egzersiz terapisi, sporcu sağlığı, istanbul fizyoterapist, nazlı gül çira")" />
+    <meta name="author" content="Nazlı Gül Çira" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#3D6B5D" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@ViewData["Title"] | Nazlı Gül Çira Fizyoterapi" />
+    <meta property="og:description" content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri.")" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="Nazlı Gül Çira Fizyoterapi" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@ViewData["Title"] | Nazlı Gül Çira Fizyoterapi" />
+    <meta name="twitter:description" content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri.")" />
+
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg" />
+    <link rel="alternate icon" href="~/favicon.svg" />
+    <link rel="apple-touch-icon" href="~/favicon.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +36,13 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Fizyoterapi</a>
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-page="/Index">
+                    <img src="~/logo.svg" alt="Nazlı Gül Çira Logo" class="brand-logo" />
+                    <div class="brand-text">
+                        <span class="brand-name">Nazlı Gül Çira</span>
+                        <span class="brand-tagline">Fizyoterapi</span>
+                    </div>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

@@ -2,6 +2,8 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Anasayfa";
+    ViewData["Description"] = "Nazlı Gül Çira ile modern fizyoterapi. Manuel terapi, kuru iğneleme ve kişiye özel egzersiz programlarıyla hareket özgürlüğünüze kavuşun.";
+    ViewData["Keywords"] = "fizyoterapi, fizyoterapist istanbul, manuel terapi, kuru iğneleme, egzersiz terapisi, nazlı gül çira";
 }
 
 <section class="hero-warm">
@@ -13,22 +15,11 @@
             Yeni randevular alınıyor
         </div>
 
-        @if (Model.Therapist != null)
-        {
-            <h1 class="hero-warm-title">
-                Hareketin <em>özgürlüğü</em><br />
-                için yanınızdayız
-            </h1>
-            <p class="hero-warm-subtitle">@Model.Therapist.Biography</p>
-        }
-        else
-        {
-            <h1 class="hero-warm-title">
-                Hareketin <em>özgürlüğü</em><br />
-                için yanınızdayız
-            </h1>
-            <p class="hero-warm-subtitle">Modern fizyoterapi anlayışıyla ağrılarınızı geride bırakıp, hareketin keyfini yeniden keşfedin.</p>
-        }
+        <h1 class="hero-warm-title">
+            Hareketin <em>özgürlüğü</em><br />
+            için yanınızdayız
+        </h1>
+        <p class="hero-warm-subtitle">Modern fizyoterapi anlayışıyla ağrılarınızı geride bırakıp, hareketin keyfini yeniden keşfedin.</p>
 
         <div class="hero-warm-actions">
             <a href="/Randevu" class="btn-warm-primary">Randevu Al</a>

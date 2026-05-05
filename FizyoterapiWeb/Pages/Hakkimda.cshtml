@@ -2,6 +2,8 @@
 @model HakkimdaModel
 @{
     ViewData["Title"] = "Hakkımda";
+    ViewData["Description"] = "Sağlık Bilimleri Üniversitesi Fizyoterapi ve Rehabilitasyon mezunu. Manuel terapi, kuru iğneleme ve sporcu sağlığı uzmanlık alanları.";
+    ViewData["Keywords"] = "nazlı gül çira, fizyoterapist, sağlık bilimleri üniversitesi, manuel terapi uzmanı, kuru iğneleme uzmanı";
 }
 
 <!-- A) SAYFA HERO -->
@@ -14,15 +16,11 @@
         {
             <h1 class="hakkimda-hero-title">@Model.Therapist.FullName</h1>
             <p class="hakkimda-hero-role">@Model.Therapist.Title</p>
-            <p class="hakkimda-hero-intro">
-                @(Model.Therapist.Biography?.Split('.').FirstOrDefault()?.Trim() + ".")
-            </p>
         }
         else
         {
             <h1 class="hakkimda-hero-title">Profesyonel Fizyoterapi</h1>
             <p class="hakkimda-hero-role">Uzman Fizyoterapist</p>
-            <p class="hakkimda-hero-intro">Modern fizyoterapi anlayışıyla hastalarımızın sağlığına kavuşmasına yardımcı oluyoruz.</p>
         }
     </div>
 </section>
