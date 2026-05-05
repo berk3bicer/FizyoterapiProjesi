@@ -18,9 +18,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("https://nazligulcira.com", "https://www.nazligulcira.com")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
 
@@ -52,6 +53,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthorization();
 app.MapControllers();
