@@ -15,7 +15,6 @@ namespace FizyoterapiAPI.Controllers
             _serviceService = serviceService;
         }
 
-        // GET: api/services
         [HttpGet]
         public async Task<ActionResult<List<Service>>> GetAll()
         {
@@ -23,7 +22,6 @@ namespace FizyoterapiAPI.Controllers
             return Ok(services);
         }
 
-        // GET: api/services/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Service>> GetById(int id)
         {
@@ -32,7 +30,6 @@ namespace FizyoterapiAPI.Controllers
             return Ok(service);
         }
 
-        // POST: api/services
         [HttpPost]
         public async Task<ActionResult<Service>> Create(Service service)
         {
@@ -40,7 +37,6 @@ namespace FizyoterapiAPI.Controllers
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
-        // PUT: api/services/5
         [HttpPut("{id}")]
         public async Task<ActionResult<Service>> Update(int id, Service service)
         {
@@ -49,7 +45,6 @@ namespace FizyoterapiAPI.Controllers
             return Ok(updated);
         }
 
-        // DELETE: api/services/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
