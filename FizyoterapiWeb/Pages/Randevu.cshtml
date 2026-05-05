@@ -5,94 +5,211 @@
     var currentDateTime = DateTime.Now.ToString("yyyy-MM-ddTHH:mm");
 }
 
-<section class="hero-section">
-    <div class="container text-center text-white py-4">
-        <h1 class="display-5 fw-bold">Randevu Al</h1>
-        <p class="lead">Formu doldurun, en kısa sürede sizinle iletişime geçelim</p>
+<!-- A) HERO -->
+<section class="page-hero">
+    <div class="container text-center">
+        <span class="section-tag">Randevu Al</span>
+        <h1 class="page-hero-title">Sağlığınıza Doğru <em style="color: var(--color-green-dark); font-style: italic;">İlk Adım</em></h1>
+        <p class="page-hero-subtitle">Formu doldurun, size özel randevu talebinizi değerlendirelim ve en kısa sürede iletişime geçelim</p>
     </div>
 </section>
 
-<section class="py-5">
+<!-- B) İKİ SÜTUNLU ANA İÇERİK -->
+<section class="randevu-section">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
 
-                @if (Model.IsSuccess)
-                {
+        @if (Model.IsSuccess)
+        {
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
                     <div class="alert alert-success">
-                        <h4 class="alert-heading">✓ Randevu talebiniz alındı!</h4>
-                        <p class="mb-0">En kısa sürede sizinle iletişime geçeceğiz. Anasayfaya dönmek için <a href="/"
-                                                                                                                  class="alert-link">tıklayın</a>.</p>
+                        <h4 class="alert-heading">Randevu talebiniz alındı!</h4>
+                        <p class="mb-0">En kısa sürede sizinle iletişime geçeceğiz. <a href="/" class="alert-link">Anasayfaya dönmek için tıklayın.</a></p>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row g-5 align-items-start">
+
+                <!-- SOL SÜTUN: Bilgilendirici içerik -->
+                <div class="col-lg-5">
+
+                    <!-- Randevu Süreci -->
+                    <div class="appointment-info-card">
+                        <h3 class="info-card-title">Randevu Süreciniz</h3>
+                        <div class="step-item">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <strong>Formu Doldurun</strong>
+                                <span>Aşağıdaki formu eksiksiz ve doğru bilgilerle doldurun.</span>
+                            </div>
                         </div>
-                    }
-                else
-                    {
+                        <div class="step-item">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <strong>Onay E-postası</strong>
+                                <span>Talebiniz tarafımıza ulaşır, uygunluk kontrol edilir.</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <strong>İletişime Geçeriz</strong>
+                                <span>En kısa sürede sizi arayarak randevuyu kesinleştiririz.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Çalışma Saatleri -->
+                    <div class="appointment-info-card">
+                        <h3 class="info-card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem; vertical-align: -3px;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            Çalışma Saatleri
+                        </h3>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-list-label">Pazartesi - Cuma</span>
+                                <span class="info-list-value">09:00 - 18:00</span>
+                            </li>
+                            <li>
+                                <span class="info-list-label">Cumartesi</span>
+                                <span class="info-list-value">10:00 - 16:00</span>
+                            </li>
+                            <li>
+                                <span class="info-list-label">Pazar</span>
+                                <span class="info-list-value info-list-closed">Kapalı</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- İlk Seansta -->
+                    <div class="appointment-info-card">
+                        <h3 class="info-card-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem; vertical-align: -3px;">
+                                <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"/>
+                                <polyline points="9,11 9,3 15,3 15,11"/>
+                            </svg>
+                            İlk Seansta
+                        </h3>
+                        <ul class="info-checklist">
+                            <li>Rahat kıyafetler tercih edin</li>
+                            <li>Varsa eski reçete veya raporlarınızı getirin</li>
+                            <li>10 dakika erken gelmenizi rica ederiz</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- SAĞ SÜTUN: Form -->
+                <div class="col-lg-7">
+                    <div class="randevu-form-card">
+                        <h2 class="form-card-title">Randevu Bilgileri</h2>
+
                         @if (Model.HasError)
                         {
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger mb-4">
                                 Bir hata oluştu. Lütfen daha sonra tekrar deneyin.
                             </div>
                         }
 
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body p-4 p-md-5">
-                                <form method="post">
-                                    <div class="mb-3">
-                                        <label class="form-label fw-semibold">Ad Soyad <span
-                                            class="text-danger">*</span></label>
-                                            <input asp-for="Appointment.PatientName" class="form-control form-control-lg"
-                                                   required />
-                                        </div>
+                        <form method="post">
+                            <div class="mb-4">
+                                <label class="form-label">Ad Soyad <span class="text-danger">*</span></label>
+                                <input asp-for="Appointment.PatientName" class="form-control" placeholder="Adınız ve soyadınız" required />
+                            </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label fw-semibold">E-posta <span class="text-danger">*</span></label>
-                                            <input asp-for="Appointment.PatientEmail" type="email"
-                                                   class="form-control form-control-lg" required />
-                                        </div>
+                            <div class="mb-4">
+                                <label class="form-label">E-posta <span class="text-danger">*</span></label>
+                                <input asp-for="Appointment.PatientEmail" type="email" class="form-control" placeholder="ornek@email.com" required />
+                            </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label fw-semibold">Telefon <span class="text-danger">*</span></label>
-                                            <div class="input-group input-group-lg">
-                                                <span class="input-group-text">+90</span>
-                                                <input asp-for="Appointment.PatientPhone" type="tel" class="form-control"
-                                                       placeholder="5XX XXX XX XX" pattern="[0-9\s]{10,13}" maxlength="13" required />
-                                            </div>
-                                            <small class="text-muted">Örnek: 530 324 21 23</small>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label fw-semibold">Hizmet <span class="text-danger">*</span></label>
-                                            <select asp-for="Appointment.ServiceId" class="form-select form-select-lg" required>
-                                                <option value="">Hizmet seçin...</option>
-                                                @foreach (var service in Model.Services)
-                                                {
-                                                    <option value="@service.Id">@service.Name</option>
-                                                }
-                                            </select>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label fw-semibold">Tercih Edilen Tarih ve Saat <span class="text-danger">*</span></label>
-                                             <input asp-for="Appointment.AppointmentDate"
-                                                type="datetime-local"
-                                                class="form-control form-control-lg"
-                                                min="@currentDateTime" 
-                                                value="@currentDateTime"
-                                                required />
-                                        </div>
-
-                                            <div class="mb-4">
-                                                <label class="form-label fw-semibold">Notlar (opsiyonel)</label>
-                                                <textarea asp-for="Appointment.Notes" class="form-control" rows="4"
-                                                          placeholder="Şikayetinizi kısaca belirtebilirsiniz..."></textarea>
-                                            </div>
-
-                                            <button type="submit" class="btn btn-success btn-lg w-100">Randevu Talebini Gönder</button>
-                                        </form>
-                                    </div>
+                            <div class="mb-4">
+                                <label class="form-label">Telefon <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">+90</span>
+                                    <input asp-for="Appointment.PatientPhone" type="tel" id="phoneInput" class="form-control"
+                                           placeholder="5XX XXX XX XX" pattern="[0-9\s]{10,13}" maxlength="13" required />
                                 </div>
-                            }
-                        </div>
+                                <small class="form-text" style="color: var(--color-text-muted);">Örnek: 530 324 21 23</small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">Hizmet <span class="text-danger">*</span></label>
+                                <select asp-for="Appointment.ServiceId" class="form-select" required>
+                                    <option value="">Hizmet seçin...</option>
+                                    @foreach (var service in Model.Services)
+                                    {
+                                        <option value="@service.Id">@service.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">Tercih Edilen Tarih ve Saat <span class="text-danger">*</span></label>
+                                <input asp-for="Appointment.AppointmentDate" type="datetime-local" class="form-control"
+                                       min="@currentDateTime" value="@currentDateTime" required />
+                            </div>
+
+                            <div class="mb-5">
+                                <label class="form-label">Notlar <span style="color: var(--color-text-muted); font-weight: 400;">(opsiyonel)</span></label>
+                                <textarea asp-for="Appointment.Notes" class="form-control" rows="4"
+                                          placeholder="Şikayetinizi kısaca belirtebilirsiniz..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-warm-primary w-100" style="display: block; text-align: center; padding: 1rem;">
+                                Randevu Talebini Gönder
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </section>
+
+            </div>
+        }
+    </div>
+</section>
+
+<!-- C) SSS BÖLÜMÜ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-title">
+            <span class="section-tag">SSS</span>
+            <h2>Sıkça Sorulan Sorular</h2>
+            <p>Randevu sürecine dair merak ettikleriniz</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="faq-item">
+                    <h4 class="faq-question">Randevumu nasıl iptal edebilirim?</h4>
+                    <p class="faq-answer">Randevunuzu iptal etmek için seans saatinden en az 24 saat önce telefon veya e-posta ile bize ulaşmanız yeterlidir. Son dakika iptalleri için mümkün olduğunca erken haber vermenizi rica ederiz.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="faq-item">
+                    <h4 class="faq-question">Sigortamı kullanabilir miyim?</h4>
+                    <p class="faq-answer">Sigorta kapsamı poliçeden poliçeye değişmektedir. Randevu öncesinde sigorta şirketinizle fizyoterapi seanslarının kapsama dahil olup olmadığını teyit etmenizi öneririz. Detaylı bilgi için bizi arayabilirsiniz.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="faq-item">
+                    <h4 class="faq-question">İlk seans ne kadar sürer?</h4>
+                    <p class="faq-answer">İlk seans genellikle 60-90 dakika sürer. Bu sürenin büyük bölümü detaylı değerlendirme ve tıbbi geçmişinizin incelenmesine ayrılır. Takip seansları ise ortalama 45-60 dakikadır.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="faq-item">
+                    <h4 class="faq-question">Tedavi süresi ne kadardır?</h4>
+                    <p class="faq-answer">Tedavi süresi şikayetin türüne, şiddetine ve kişinin iyileşme hızına göre değişir. Bazı akut problemler 4-6 seansta düzelirken, kronik durumlar daha uzun bir süreç gerektirebilir. İlk değerlendirmede size özel bir plan sunulur.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/randevu.js" asp-append-version="true"></script>
+}
