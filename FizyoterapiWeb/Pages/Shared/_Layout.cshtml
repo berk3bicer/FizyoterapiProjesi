@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>@ViewData["Title"] | Nazlı Gül Çira Fizyoterapi</title>
-    <meta name="description" content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri. Manuel terapi, kuru iğneleme, egzersiz terapisi ve daha fazlası.")" />
-    <meta name="keywords" content="@(ViewData["Keywords"] ?? "fizyoterapi, fizyoterapist, manuel terapi, kuru iğneleme, egzersiz terapisi, sporcu sağlığı, istanbul fizyoterapist, nazlı gül çira")" />
+    <meta name="description"
+          content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri. Manuel terapi, kuru iğneleme, egzersiz terapisi ve daha fazlası.")" />
+    <meta name="keywords"
+          content="@(ViewData["Keywords"] ?? "fizyoterapi, fizyoterapist, manuel terapi, kuru iğneleme, egzersiz terapisi, sporcu sağlığı, istanbul fizyoterapist, nazlı gül çira")" />
     <meta name="author" content="Nazlı Gül Çira" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#3D6B5D" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="@ViewData["Title"] | Nazlı Gül Çira Fizyoterapi" />
-    <meta property="og:description" content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri.")" />
+    <meta property="og:description"
+          content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri.")" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:site_name" content="Nazlı Gül Çira Fizyoterapi" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="@ViewData["Title"] | Nazlı Gül Çira Fizyoterapi" />
-    <meta name="twitter:description" content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri.")" />
+    <meta name="twitter:description"
+          content="@(ViewData["Description"] ?? "Modern fizyoterapi anlayışıyla, kişiye özel ve kanıta dayalı tedavi yöntemleri.")" />
 
     <link rel="icon" type="image/svg+xml" href="~/favicon.svg" />
     <link rel="alternate icon" href="~/favicon.svg" />
@@ -27,11 +32,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -43,8 +51,8 @@
                         <span class="brand-tagline">Fizyoterapi</span>
                     </div>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-lg-inline-flex justify-content-end">
@@ -79,7 +87,8 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-brand">Fizyoterapi</div>
-                    <p>Modern yaklaşım, kişiye özel ve kanıta dayalı tedavi anlayışıyla sağlığınız için yanınızdayız.</p>
+                    <p>Modern yaklaşım, kişiye özel ve kanıta dayalı tedavi anlayışıyla sağlığınız için yanınızdayız.
+                    </p>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5>Sayfalar</h5>
@@ -90,8 +99,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5>İletişim</h5>
-                    <p>iletisim@fizyoterapi.com</p>
-                    <p>+90 555 000 00 00</p>
+                    <p>info@nazligulcira.com</p>
+                    <p>+90 538 247 67 47</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5>Çalışma Saatleri</h5>
@@ -111,4 +120,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
