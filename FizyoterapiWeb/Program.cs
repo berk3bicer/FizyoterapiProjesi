@@ -8,7 +8,10 @@ builder.Services.AddRazorPages();
 // API'ye bağlanan HttpClient
 builder.Services.AddHttpClient<IApiService, ApiService>(client =>
 {
-    var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? "http://localhost:5114";
+    var apiBaseUrl = Environment.GetEnvironmentVariable("API_BASE_URL")
+        ?? builder.Configuration["ApiSettings:BaseUrl"]
+        ?? builder.Configuration["ApiBaseUrl"]
+        ?? "http://localhost:5114";
     client.BaseAddress = new Uri(apiBaseUrl);
 });
 
@@ -18,10 +21,8 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
