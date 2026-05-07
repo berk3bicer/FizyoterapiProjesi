@@ -16,6 +16,7 @@ namespace FizyoterapiAPI.Controllers
         }
 
         [HttpGet]
+        [HttpHead]
         public async Task<ActionResult<List<Service>>> GetAll()
         {
             var services = await _serviceService.GetAllAsync();

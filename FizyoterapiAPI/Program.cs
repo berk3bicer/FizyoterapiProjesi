@@ -49,19 +49,6 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthorization();
-app.Use(async (context, next) =>
-{
-    if (context.Request.Method == "HEAD")
-    {
-        context.Request.Method = "GET";
-        await next();
-        context.Response.Body = Stream.Null;
-    }
-    else
-    {
-        await next();
-    }
-});
 app.MapControllers();
 
 app.Run();
